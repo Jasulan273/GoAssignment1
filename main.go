@@ -45,8 +45,8 @@ func handleRequest(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("Received message:", reqData.Message)
 
 	response := JsonResponse{
-		Status:  "success",
-		Message: "Data successfully received",
+		Status:  "Success",
+		Message: "Successfully received",
 	}
 
 	w.Header().Set("Content-Type", "application/json")
@@ -54,7 +54,7 @@ func handleRequest(w http.ResponseWriter, r *http.Request) {
 
 	encoder := json.NewEncoder(w)
 	if err := encoder.Encode(response); err != nil {
-		http.Error(w, "Internal server error", http.StatusInternalServerError)
+		http.Error(w, "Server error", http.StatusInternalServerError)
 		return
 	}
 }
